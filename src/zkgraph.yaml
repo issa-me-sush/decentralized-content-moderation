@@ -1,0 +1,20 @@
+specVersion: 0.0.2
+apiVersion: 0.0.2
+name: content_moderation
+description: "Content moderation for a decentralized social network or any kind of customized DAO or decentralized network/ecosystem"
+repository: https://github.com/issa-me-sush/decentralized-content-moderation
+dataSources:
+  - kind: ethereum
+    network: sepolia
+    event:
+      - address: "0xF3B1d8b20BaB5E023e9A8419195a785eBE1caBBf"
+        events: 
+          - "ContentPosted(address,bytes32)"
+mapping:
+  language: wasm/assemblyscript
+  file: ./mapping.ts
+  handler: handleBlocks
+dataDestinations:
+  - kind: ethereum
+    network: sepolia
+    address: "0x0000000000000000000000000000000000000001"
